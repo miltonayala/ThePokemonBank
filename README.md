@@ -13,16 +13,16 @@ El entregable de la **Fase 1** incluye solo la parte **Front-End** (HTML y CSS),
 ---
 
 ## 🗓 Fechas de Entrega
-- **Fase 1:** Unidad 2 — **16 al 22 de septiembre**  
+- **Fase 1:** Unidad 2 — **16 al 22 de septiembre (fase en curso)**  
 - **Fase 2:** Unidad 4 — **3 al 9 de noviembre**
 
 ---
 
 ## 🎯 Objetivos principales
-- Diseñar una interfaz de **cajero automático** que permita al usuario realizar operaciones bancarias básicas.
-- Aplicar **HTML5**, **CSS3** y un **framework CSS responsivo**.
-- Documentar el proyecto en un archivo **Word** con todos los requisitos solicitados.
-- Versionar el código usando **Git** y alojarlo en **GitHub** (capturas que demuestren el proceso).
+- Diseñar una interfaz de **cajero automático** que permita al usuario realizar operaciones bancarias básicas (fase 1).
+- Aplicar **HTML5**, **CSS3** y un **framework CSS responsivo** (fase 1).
+- Documentar el proyecto en un archivo **Word** con todos los requisitos solicitados (fase 1).
+- Versionar el código usando **Git** y alojarlo en **GitHub** (capturas que demuestren el proceso) (fase 1).
 
 ---
 
@@ -50,36 +50,41 @@ El entregable de la **Fase 1** incluye solo la parte **Front-End** (HTML y CSS),
 ---
 
 ## 📄 Requisitos de documentación (archivo Word)
+
+[Link al Archivo de Word Colaborativo](https://docs.google.com/document/d/13DnOPD5hI8DSY9CdaNS6dc4-JMLsFTCeTzdggrVfEBc/edit?tab=t.0#heading=h.s7pri4too7m1)
+
 El documento Word debe contener **toda** la información siguiente:
-- Portada.  
-- Introducción.  
-- Índice.  
-- Objetivos: **Generales y Específicos** (en la misma página).  
-- Desarrollo del análisis del proyecto (flujogramas y pantallas/wireframes).  
-- Investigaciones y evidencias de versionamiento (capturas de Git/GitHub).  
-- Conclusiones.
+- Portada
+- Introducción
+- Índice
+- Objetivos: **Generales y Específicos** (en la misma página)
+- Desarrollo del análisis del proyecto (flujogramas y pantallas) 
+- Investigaciones y evidencias de versionamiento (capturas de Git/GitHub) (revisar sección de investigaciones y herramientas)
+- Conclusiones
 
 > **Nota:** El informe escrito (20%) es requisito para poder defender el proyecto. La defensa y solución práctica representan el 80%.
 
 ---
 
-## 🔁 Diagrama de flujo
+## 🔁 Diagrama de flujo (este va en el archivo de Word y tambien por aparte).
 - Incluir un **diagrama de flujo** que muestre la lógica de la aplicación desde el inicio de sesión y todas las rutas posibles según las opciones del usuario (depósito, retiro, consulta, pago, historial, gráfico, salir).
 
 ---
 
 ## ⚙️ Framework CSS (recomendado para responsividad)
-Se requiere que la aplicación sea **responsive**. Se recomienda usar uno de los siguientes:
-- **Bootstrap 3.4** — https://getbootstrap.com/docs/3.4/getting-started/  
+
+Utilizaremos Bootstrap 4.0:
+
 - **Bootstrap 4.0** — https://getbootstrap.com/  
-- **Materialize CSS** — https://materializecss.com/
 
 ---
 
 ## 🧰 Investigaciones y herramientas
-- **Versionamiento:** Investigar y demostrar el uso de **Git** (https://git-scm.com/downloads).  
-  - Incluir capturas de: `git init`, `git add`, `git commit`, `git remote add origin`, `git push`.  
-  - Crear repositorio en **GitHub** y compartir con el docente.
+- **Versionamiento:** Investigar y demostrar el uso de **Git** (https://git-scm.com/downloads)
+  - Incluir capturas de: `git init`, `git add`, `git commit`, `git remote add origin`, `git push`
+  - Crear repositorio en **GitHub** y compartir con el docente
+ 
+    
 - **Librerías a explorar (hacer al menos 2 ejemplos):**
   - **SweetAlert** — https://sweetalert.js.org/  
   - **jsPDF** — https://parall.ax/products/jspdf  
@@ -96,7 +101,7 @@ pokemon-bank/
 │   ├── js/         # scripts (Fase 2 / ejemplos de librerías)
 │   └── img/        # imágenes, logos y recursos
 ├── docs/
-│   └── reporte-fase1.docx
+│   └── screenshots/ #agregar aqui las capturas tambien
 ├── diagrams/
 │   └── flujograma.png
 ├── index.html
@@ -108,7 +113,8 @@ pokemon-bank/
 
 ---
 
-## 🛠 Tecnologías propuestas
+## 🛠 Tecnologías a utilizar
+
 - **HTML5** — Estructura semántica.  
 - **CSS3** — Estilos y responsive design.  
 - **Framework CSS** — Bootstrap 3/4 o Materialize.  
@@ -118,6 +124,7 @@ pokemon-bank/
 ---
 
 ## 📋 PORCENTAJES de evaluación
+
 - **Trabajo escrito:** 20% (requisito para poder defender)  
   - Portada, introducción, índice, objetivos, análisis (flujogramas y pantallas), investigaciones/versionamiento, conclusiones.
 - **Solución y Defensa:** 80%  
@@ -181,21 +188,15 @@ git clone https://github.com/usuario/pokemon-bank.git
 ---
 
 ## 📌 Recomendaciones de entrega y defensa
-- Subir todo el repositorio a **GitHub** y compartir el enlace con el docente.  
+- Subir todo el repositorio a **GitHub** y compartir el enlace con el profesor.  
 - Subir el **reporte Word** al Aula Digital.  
 - Preparar la **defensa** (demostración de pantallas y explicación del diagrama de flujo) para la videoconferencia programada por el docente.
 
 ---
 
 ## 👨‍🎓 Autor / Contacto
-**Milton Ayala**  
-Proyecto académico — *Desarrollo de Aplicaciones Web*  
-Repositorio (ejemplo): `https://github.com/usuario/pokemon-bank`  
-*(Reemplace con su enlace y correo institucional)*
+**Milton Ayala y equipo**
+Proyecto académico — *Desarrollo de Aplicaciones Web con Software Interpretado en el Cliente*  
+Repositorio: `https://github.com/miltonayala/ThePokemonBank/`  
 
 ---
-
-## ✅ Sugerencias adicionales (opcional)
-- Agregar **badges** en la parte superior del README (HTML5, CSS3, Bootstrap, Git).  
-- Incluir capturas de pantalla (carpeta `docs/screenshots/`) que muestren el login, pantalla de acciones, historial y gráfico.  
-- Preparar un pequeño video o GIF (opcional) que demuestre el flujo de navegación durante la defensa.
