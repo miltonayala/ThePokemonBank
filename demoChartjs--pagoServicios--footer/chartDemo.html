@@ -5,10 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src=" https://cdn.jsdelivr.net/npm/chart.js@4.5.0/dist/chart.umd.min.js "></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <title>Demo-Graficos</title>
 
     <!-- Estilos minimos para mejor presentación CSS Personalizado -->
-    <style>
+    <!-- <style> 
         body {
             font-family: Verdana, Geneva, Tahoma, sans-serif;
             margin: 0;
@@ -40,28 +42,34 @@
             margin: 2rem 0;
             width: 100%;
         }
-    </style>
+    </style> -->
 
 </head>
 
 <body>
-    <section class="content">
-        <div>
-            <h1>Grafico demo 1</h1>
-            <canvas id="myChart1" width="400" height="400"></canvas>
-            <hr>
-        </div>
+    <section class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-6 col-xl-5">
+                <div class="d-flex flex-column align-items-center gap-5">
+                    <div class="w-100">
+                        <h1 class="mb-5 text-center">Grafico demo 1</h1>
+                        <canvas id="myChart1" width="400" height="400" class="w-100"></canvas>
+                        <hr class="my-5 border-top border-2 border-secondary">
+                    </div>
 
-        <div>
-            <h1>Grafico demo 2</h1>
-            <canvas id="myChart2" width="400" height="400"></canvas>
-            <hr>
-        </div>
+                    <div class="w-100">
+                        <h1 class="mb-5 text-center">Grafico demo 2</h1>
+                        <canvas id="myChart2" width="400" height="400" class="w-100"></canvas>
+                        <hr class="my-5 border-top border-2 border-secondary">
+                    </div>
 
-        <div>
-            <h1>Grafico demo 3</h1>
-            <canvas id="myChart3" width="400" height="400"></canvas>
-            <hr>
+                    <div class="w-100">
+                        <h1 class="mb-5 text-center">Grafico demo 3</h1>
+                        <canvas id="myChart3" width="400" height="400" class="w-100"></canvas>
+                        <hr class="my-5 border-top border-2 border-secondary">
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -155,7 +163,10 @@
             },
         });
     </script>
-
+    <!-- Script bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">
+        </script>
 
 </body>
 
