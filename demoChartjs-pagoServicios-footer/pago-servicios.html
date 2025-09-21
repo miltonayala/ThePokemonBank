@@ -6,26 +6,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <!-- SweetAlert2 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <!-- SweetAlert2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
     <!-- Estilos personalizados -->
     <style>
         /* Estilos de background de categorias (collapse) */
         .custom-bg {
-            background-color: #ffc1c1;
-            /* background-image: url('');
-            background-size: cover; */
+            background-color: #ffefef;
+            background-image:
+                url('../assets/img/gastly.png');
+            background-repeat: repeat;
+            background-size: 60px 60px;
+            /* Mismo tamaño para todas */
+            background-blend-mode: overlay;
+            /* Mezcla los fondos */
+            opacity: 0.8;
+            /* Transparencia para que no sea muy intenso */
         }
     </style>
-    
+
     <title>Pago de Servicios</title>
 </head>
 
 <body class="mt-5">
+    <div class="container px-0 pb-5">
+        <h2 class="display-3 fw-bolder text-dark py-3"> > Pago de Servicios</h2>
+    </div>
+    <div class="container px-0">
+        <h4 class="h2 fw-bolder text-dark py-3">Selecciona una categoría</h4>
+    </div>
     <div class="container pt-5 custom-bg rounded-3 shadow p-3">
 
         <div class="pb-5">
             <!-- Botón que activa el collapse energia electrica-->
             <div class="d-block w-50 mb-2 mx-auto">
-                <button class="btn btn-danger w-100" type="button" data-bs-toggle="collapse"
+                <button class="btn btn-danger w-100 fw-bolder shadow" type="button" data-bs-toggle="collapse"
                     data-bs-target="#listaEnergiaElectrica" aria-expanded="false" aria-controls="listaEnergiaElectrica">
                     ⚡ Servicios de Energía Eléctrica
                 </button>
@@ -34,7 +51,7 @@
             <!-- Contenedor collapse que contiene la lista de enlaces Energía electrica -->
             <div class="collapse mb-3 w-50 mx-auto" id="listaEnergiaElectrica">
                 <div class="card card-body">
-                    <div class="list-group">
+                    <div class="list-group fw-bold">
                         <a href="#" class="list-group-item list-group-item-action" data-bs-toggle="modal"
                             data-bs-target="#modalUno">CAESS</a>
                         <a href="#" class="list-group-item list-group-item-action" data-bs-toggle="modal"
@@ -54,7 +71,7 @@
         <div class="pb-5">
             <!-- Botón que activa el collapse energia internet-->
             <div class="d-block w-50 mb-2 mx-auto">
-                <button class="btn btn-danger w-100" type="button" data-bs-toggle="collapse"
+                <button class="btn btn-danger w-100 fw-bolder shadow" type="button" data-bs-toggle="collapse"
                     data-bs-target="#listaInternet" aria-expanded="false" aria-controls="listaInternet">
                     🌐 Servicios de Internet residencial
                 </button>
@@ -63,7 +80,7 @@
             <!-- Contenedor collapse que contiene la lista de enlaces Internet -->
             <div class="collapse mb-3 w-50 mx-auto" id="listaInternet">
                 <div class="card card-body">
-                    <div class="list-group">
+                    <div class="list-group fw-bold">
                         <a href="#" class="list-group-item list-group-item-action" data-bs-toggle="modal"
                             data-bs-target="#modalUno">Claro</a>
                         <a href="#" class="list-group-item list-group-item-action" data-bs-toggle="modal"
@@ -82,7 +99,7 @@
         <div class="pb-5">
             <!-- Botón que activa el collapse energia telefonia-->
             <div class="d-block w-50 mb-2 mx-auto">
-                <button class="btn btn-danger w-100" type="button" data-bs-toggle="collapse"
+                <button class="btn btn-danger w-100 fw-bolder shadow" type="button" data-bs-toggle="collapse"
                     data-bs-target="#listatelefonia" aria-expanded="false" aria-controls="listatelefonia">
                     📞 Servicios de Telefonía Movil
                 </button>
@@ -91,7 +108,7 @@
             <!-- Contenedor collapse que contiene la lista de enlaces telefonia -->
             <div class="collapse mb-3 w-50 mx-auto" id="listatelefonia">
                 <div class="card card-body">
-                    <div class="list-group">
+                    <div class="list-group fw-bold">
                         <a href="#" class="list-group-item list-group-item-action" data-bs-toggle="modal"
                             data-bs-target="#modalUno">Claro</a>
                         <a href="#" class="list-group-item list-group-item-action" data-bs-toggle="modal"
@@ -109,8 +126,8 @@
         <div class="pb-5">
             <!-- Botón que activa el collapse energia Agua potable-->
             <div class="d-block w-50 mb-2 mx-auto">
-                <button class="btn btn-danger w-100" type="button" data-bs-toggle="collapse" data-bs-target="#listaAgua"
-                    aria-expanded="false" aria-controls="listaAgua">
+                <button class="btn btn-danger w-100 fw-bolder shadow" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#listaAgua" aria-expanded="false" aria-controls="listaAgua">
                     💧 Servicios de Agua Potable
                 </button>
             </div>
@@ -118,31 +135,31 @@
             <!-- Contenedor collapse que contiene la lista de enlaces agua potable -->
             <div class="collapse mb-3 w-50 mx-auto" id="listaAgua">
                 <div class="card card-body">
-                    <div class="list-group">
+                    <div class="list-group fw-bold">
                         <a href="#" class="list-group-item list-group-item-action" data-bs-toggle="modal"
                             data-bs-target="#modalUno">ANDA</a>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
-
-
-
-        <!-- Modal -->
-        <div class="modal fade" id="modalUno" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal Uno</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        Contenido del Modal número uno...
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="modalUno" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">PAGO DE COLECTORES</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Codigo insertado por JS -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" onclick="aplicarPago()">
+                        Aplicar Pago
+                    </button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                 </div>
             </div>
         </div>
@@ -152,6 +169,86 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">
         </script>
+
+    <!-- Script personalizado -->
+    <script>
+        const modalUno = document.getElementById('modalUno');
+        modalUno.addEventListener('show.bs.modal', function (event) {
+            // El botón que activó el modal
+            const button = event.relatedTarget;
+
+            // Obtener data atributos
+            const contenedorBisabuelo = button.parentElement.parentElement.parentElement;
+            const idBisabuelo = contenedorBisabuelo.id;
+            const texto = button.textContent;
+            //generar nombre de categoria correcto
+            const categoria = generarNombreCategoria(idBisabuelo)
+
+            // Mostrar información en el modal
+            const modalBody = modalUno.querySelector('.modal-body');
+            modalBody.innerHTML = `
+            <!-- Información con estilo rojo/acento -->
+            <div class="alert alert-danger mb-3 border-0">
+                <div class="d-flex">
+                    <div class="me-3">
+                        <i class="bi bi-building fs-4 text-danger"></i>
+                    </div>
+                    <div>
+                        <strong class="text-dark">Servicios de ${categoria}</strong><br>
+                        <small class="text-muted">Colector: <strong>${texto}</strong></small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Campo de entrada -->
+            <div class="mb-3">
+                <label class="form-label fw-semibold text-dark">
+                    <i class="bi bi-key text-danger me-1"></i>
+                    Identificador
+                </label>
+                <input type="text" 
+                    class="form-control border-danger" 
+                    id="referencia" 
+                    placeholder="Ej: 123456789" 
+                    required>
+                <div class="form-text text-muted">
+                    Ingrese su número de referencia
+                </div>
+            </div>
+    `;
+        });
+
+        function generarNombreCategoria(id) {
+            if (id == "listaEnergiaElectrica") {
+                return "Energía Electrica"
+            }
+            if (id == "listaInternet") {
+                return "Internet residencial"
+            }
+            if (id == "listatelefonia") {
+                return "Telefonía Móvil"
+            }
+            if (id == "listaAgua") {
+                return "Agua Potable"
+            }
+        }
+
+
+        function aplicarPago() {
+            // Cierra el modal manualmente
+            const modal = bootstrap.Modal.getInstance(document.getElementById('modalUno'));
+            modal.hide();
+
+            // Muestra alerta elegante
+            Swal.fire({
+                icon: 'success',
+                title: '¡Éxito!',
+                text: 'Pago aplicado con éxito',
+                confirmButtonColor: '#dc3545'
+            });
+        }
+
+    </script>
 </body>
 
 </html>
