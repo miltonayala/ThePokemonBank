@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The Pokemon Bank - Inicio</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Tus estilos/JS -->
+    <link href="assets/css/main.css" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/98424cc025.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script defer src="assets/js/panel.js"></script>
+    <style>
+      body { background-image: url("assets/img/bg.png"); }
+      .app-shell { max-width: 1000px; min-height: 100vh; background: #fff; margin: 0 auto; }
+      .section-border { border-top: 4px solid var(--bs-danger); }
+    </style>
+  </head>
+  <body class="bg-light">
+    <div class="app-shell">
+      <header class="bg-danger text-white p-3 d-flex align-items-center justify-content-between sticky-top shadow">
+        <h1 class="fw-bold fs-5 m-0">ThePokeBank</h1>
+        <button id="btnSalir" class="btn btn-sm btn-outline-light">
+          <i class="fa-duotone fa-solid fa-right-from-bracket me-1"></i> Salir
+        </button>
+      </header>
+
+      <main class="p-3">
+        <div class="section-border">
+          <div class="p-3 bg-body-tertiary">
+            <div class="d-flex align-items-start justify-content-between">
+              <i class="fa-duotone fa-solid fa-piggy-bank fs-3 me-3"></i>
+              <div class="flex-grow-1 ps-2 pt-0">
+                <span class="fw-semibold me-2" id="cuenta"></span>
+                <span>Cuenta de ahorros</span>
+                <div class="py-3 fw-semibold fs-3" id="saldo"></div>
+                <div class="d-flex align-items-center justify-content-between">
+                  <span class="text-secondary small">Saldo disponible</span>
+                  <button onclick="navigator.share && navigator.share({text: cuenta.textContent})" class="btn btn-link btn-sm text-decoration-none text-secondary">
+                    <i class="fa-duotone fa-solid fa-share me-1"></i>Compartir numero
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="fw-medium text-dark fs-6 p-3 mb-2">
+          <i class="fa-duotone fa-solid fa-bell-concierge me-2"></i>Menu de acciones
+        </h2>
+
+        <div class="row row-cols-1 row-cols-sm-2 g-4">
+          <div class="col">
+            <div class="card h-100 shadow-sm">
+              <div class="card-body">
+                <div class="text-uppercase fw-semibold mb-2">
+                  <i class="fa-duotone fa-solid fa-money-bill-transfer me-1"></i>
+                  Movimientos
+                </div>
+                <p class="mb-3 small">
+                  Controla tu actividad de cuenta en tiempo real y encuentra cualquier transacción
+                </p>
+                <div class="text-end">
+                  <a href="#" class="btn btn-outline-danger btn-sm">
+                    IR <i class="fa-duotone fa-solid fa-circle-arrow-right ms-1"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card h-100 shadow-sm">
+              <div class="card-body">
+                <div class="text-uppercase fw-semibold mb-2">
+                  <i class="fa-duotone fa-solid fa-comment-dollar me-1"></i>
+                  Pago de Servicios
+                </div>
+                <p class="mb-3 small">
+                  Pagos de servicios 24/7 con cargo a tu cuenta o tarjeta. Histórico y comprobantes guardados
+                </p>
+                <div class="text-end">
+                  <a href="#" class="btn btn-outline-danger btn-sm">
+                    IR <i class="fa-duotone fa-solid fa-circle-arrow-right ms-1"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card h-100 shadow-sm">
+              <div class="card-body">
+                <div class="text-uppercase fw-semibold mb-2">
+                  <i class="fa-duotone fa-solid fa-hand-holding-dollar me-1"></i>
+                  Retiro de dinero
+                </div>
+                <p class="mb-3 small">
+                  Retiro sin tarjeta: crea un código temporal y obtén el efectivo.
+                </p>
+                <div class="text-end">
+                  <a href="#" class="btn btn-outline-danger btn-sm">
+                    IR <i class="fa-duotone fa-solid fa-circle-arrow-right ms-1"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card h-100 shadow-sm">
+              <div class="card-body">
+                <div class="text-uppercase fw-semibold mb-2">
+                  <i class="fa-duotone fa-solid fa-sack-dollar me-1"></i>
+                  Abonar dinero
+                </div>
+                <p class="mb-3 small">
+                  Abono a cuenta: transfiere o deposita y se refleja al momento.
+                </p>
+                <div class="text-end">
+                  <a href="#" class="btn btn-outline-danger btn-sm">
+                    IR <i class="fa-duotone fa-solid fa-circle-arrow-right ms-1"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

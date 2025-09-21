@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   // valores por defecto
   let usuario = {
+    cuenta: 1236548215,
     nombre: "Julio Jaramillo",
     pin: 1234,
     saldo: 1000,
@@ -35,5 +36,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     usuarioGuardado.login = true;
     localStorage.setItem("usuario", JSON.stringify(usuarioGuardado));
+    location.href = "panel.html"
   });
 });
