@@ -1,10 +1,11 @@
 document.addEventListener("DOMContentLoaded", function () {
   // valores por defecto
+  
   let usuario = {
     cuenta: 1236548215,
     nombre: "Julio Jaramillo",
     pin: 1234,
-    saldo: 1000,
+    saldo: 1345.75,
     login: false,
   };
 
