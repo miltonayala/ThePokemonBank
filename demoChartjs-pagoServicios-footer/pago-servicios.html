@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -10,136 +10,127 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <!-- SweetAlert2 JS -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
-    <!-- Estilos personalizados -->
-    <style>
-        /* Estilos de background de categorias (collapse) */
-        .custom-bg {
-            background-color: #ffefef;
-            background-image:
-                url('../assets/img/gastly.png');
-            background-repeat: repeat;
-            background-size: 60px 60px;
-            /* Mismo tamaño para todas */
-            background-blend-mode: overlay;
-            /* Mezcla los fondos */
-            opacity: 0.8;
-            /* Transparencia para que no sea muy intenso */
-        }
-    </style>
-
-    <title>Pago de Servicios</title>
+    <title>Pago de Servicios - Banco</title>
+    <link rel="stylesheet" href="./estilos.css">
 </head>
 
 <body class="mt-5">
-    <div class="container px-0 pb-5">
-        <h2 class="display-3 fw-bolder text-dark py-3"> > Pago de Servicios</h2>
-    </div>
-    <div class="container px-0">
-        <h4 class="h2 fw-bolder text-dark py-3">Selecciona una categoría</h4>
-    </div>
-    <div class="container pt-5 custom-bg rounded-3 shadow p-3">
 
-        <div class="pb-5">
-            <!-- Botón que activa el collapse energia electrica-->
-            <div class="d-block w-50 mb-2 mx-auto">
-                <button class="btn btn-danger w-100 fw-bolder shadow" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#listaEnergiaElectrica" aria-expanded="false" aria-controls="listaEnergiaElectrica">
-                    ⚡ Servicios de Energía Eléctrica
-                </button>
+
+    <div class="container mb-5">
+        <!-- Título principal -->
+        <div class="row mb-4">
+            <div class="col">
+                <h2 class="fw-bold text-dark mb-1"><i class="bi bi-credit-card"></i> Pago de Servicios</h2>
+                <p class="text-muted">Realice el pago de sus servicios de forma rápida y segura</p>
             </div>
+        </div>
 
-            <!-- Contenedor collapse que contiene la lista de enlaces Energía electrica -->
-            <div class="collapse mb-3 w-50 mx-auto" id="listaEnergiaElectrica">
-                <div class="card card-body">
-                    <div class="list-group fw-bold">
-                        <a href="#" class="list-group-item list-group-item-action" data-bs-toggle="modal"
-                            data-bs-target="#modalUno">CAESS</a>
-                        <a href="#" class="list-group-item list-group-item-action" data-bs-toggle="modal"
-                            data-bs-target="#modalUno">CLESSA</a>
-                        <a href="#" class="list-group-item list-group-item-action" data-bs-toggle="modal"
-                            data-bs-target="#modalUno">DEL SUR</a>
-                        <a href="#" class="list-group-item list-group-item-action" data-bs-toggle="modal"
-                            data-bs-target="#modalUno">DEUSEM</a>
-                        <a href="#" class="list-group-item list-group-item-action" data-bs-toggle="modal"
-                            data-bs-target="#modalUno">EEO</a>
+        <!-- Tarjeta de categorías -->
+        <div class="card service-card border-0 mb-4">
+            <div class="card-header bg-white py-3">
+                <h5 class="card-title mb-0 fw-bold text-dark">Seleccione una categoría de servicio</h5>
+            </div>
+            <div class="card-body">
+                <!-- Energía Eléctrica -->
+                <div class="mb-3">
+                    <button
+                        class="btn btn-outline-danger w-100 text-start d-flex justify-content-between align-items-center fw-bold py-3"
+                        type="button" data-bs-toggle="collapse" data-bs-target="#listaEnergiaElectrica"
+                        aria-expanded="false" aria-controls="listaEnergiaElectrica">
+                        <span><span class="service-icon">⚡</span> Servicios de Energía Eléctrica</span>
+                        <i class="bi bi-chevron-down"></i>
+                    </button>
+
+                    <div class="collapse mt-2" id="listaEnergiaElectrica">
+                        <div class="list-group">
+                            <a href="#" class="list-group-item list-group-item-action service-item py-2"
+                                data-bs-toggle="modal" data-bs-target="#modalUno">CAESS</a>
+                            <a href="#" class="list-group-item list-group-item-action service-item py-2"
+                                data-bs-toggle="modal" data-bs-target="#modalUno">CLESSA</a>
+                            <a href="#" class="list-group-item list-group-item-action service-item py-2"
+                                data-bs-toggle="modal" data-bs-target="#modalUno">DEL SUR</a>
+                            <a href="#" class="list-group-item list-group-item-action service-item py-2"
+                                data-bs-toggle="modal" data-bs-target="#modalUno">DEUSEM</a>
+                            <a href="#" class="list-group-item list-group-item-action service-item py-2"
+                                data-bs-toggle="modal" data-bs-target="#modalUno">EEO</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Internet -->
+                <div class="mb-3">
+                    <button
+                        class="btn btn-outline-danger w-100 text-start d-flex justify-content-between align-items-center fw-bold py-3"
+                        type="button" data-bs-toggle="collapse" data-bs-target="#listaInternet" aria-expanded="false"
+                        aria-controls="listaInternet">
+                        <span><span class="service-icon">🌐</span> Servicios de Internet residencial</span>
+                        <i class="bi bi-chevron-down"></i>
+                    </button>
+
+                    <div class="collapse mt-2" id="listaInternet">
+                        <div class="list-group">
+                            <a href="#" class="list-group-item list-group-item-action service-item py-2"
+                                data-bs-toggle="modal" data-bs-target="#modalUno">Claro</a>
+                            <a href="#" class="list-group-item list-group-item-action service-item py-2"
+                                data-bs-toggle="modal" data-bs-target="#modalUno">Tigo</a>
+                            <a href="#" class="list-group-item list-group-item-action service-item py-2"
+                                data-bs-toggle="modal" data-bs-target="#modalUno">Salnet</a>
+                            <a href="#" class="list-group-item list-group-item-action service-item py-2"
+                                data-bs-toggle="modal" data-bs-target="#modalUno">Starlink</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Telefonía -->
+                <div class="mb-3">
+                    <button
+                        class="btn btn-outline-danger w-100 text-start d-flex justify-content-between align-items-center fw-bold py-3"
+                        type="button" data-bs-toggle="collapse" data-bs-target="#listatelefonia" aria-expanded="false"
+                        aria-controls="listatelefonia">
+                        <span><span class="service-icon">📞</span> Servicios de Telefonía Móvil</span>
+                        <i class="bi bi-chevron-down"></i>
+                    </button>
+
+                    <div class="collapse mt-2" id="listatelefonia">
+                        <div class="list-group">
+                            <a href="#" class="list-group-item list-group-item-action service-item py-2"
+                                data-bs-toggle="modal" data-bs-target="#modalUno">Claro</a>
+                            <a href="#" class="list-group-item list-group-item-action service-item py-2"
+                                data-bs-toggle="modal" data-bs-target="#modalUno">Tigo</a>
+                            <a href="#" class="list-group-item list-group-item-action service-item py-2"
+                                data-bs-toggle="modal" data-bs-target="#modalUno">Digicel</a>
+                            <a href="#" class="list-group-item list-group-item-action service-item py-2"
+                                data-bs-toggle="modal" data-bs-target="#modalUno">Movistar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Agua -->
+                <div class="mb-3">
+                    <button
+                        class="btn btn-outline-danger w-100 text-start d-flex justify-content-between align-items-center fw-bold py-3"
+                        type="button" data-bs-toggle="collapse" data-bs-target="#listaAgua" aria-expanded="false"
+                        aria-controls="listaAgua">
+                        <span><span class="service-icon">💧</span> Servicios de Agua Potable</span>
+                        <i class="bi bi-chevron-down"></i>
+                    </button>
+
+                    <div class="collapse mt-2" id="listaAgua">
+                        <div class="list-group">
+                            <a href="#" class="list-group-item list-group-item-action service-item py-2"
+                                data-bs-toggle="modal" data-bs-target="#modalUno">ANDA</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-
-        <div class="pb-5">
-            <!-- Botón que activa el collapse energia internet-->
-            <div class="d-block w-50 mb-2 mx-auto">
-                <button class="btn btn-danger w-100 fw-bolder shadow" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#listaInternet" aria-expanded="false" aria-controls="listaInternet">
-                    🌐 Servicios de Internet residencial
-                </button>
-            </div>
-
-            <!-- Contenedor collapse que contiene la lista de enlaces Internet -->
-            <div class="collapse mb-3 w-50 mx-auto" id="listaInternet">
-                <div class="card card-body">
-                    <div class="list-group fw-bold">
-                        <a href="#" class="list-group-item list-group-item-action" data-bs-toggle="modal"
-                            data-bs-target="#modalUno">Claro</a>
-                        <a href="#" class="list-group-item list-group-item-action" data-bs-toggle="modal"
-                            data-bs-target="#modalUno">Tigo</a>
-                        <a href="#" class="list-group-item list-group-item-action" data-bs-toggle="modal"
-                            data-bs-target="#modalUno">Salnet</a>
-                        <a href="#" class="list-group-item list-group-item-action" data-bs-toggle="modal"
-                            data-bs-target="#modalUno">Starlink</a>
-                    </div>
-                </div>
-            </div>
-
-
-        </div>
-
-        <div class="pb-5">
-            <!-- Botón que activa el collapse energia telefonia-->
-            <div class="d-block w-50 mb-2 mx-auto">
-                <button class="btn btn-danger w-100 fw-bolder shadow" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#listatelefonia" aria-expanded="false" aria-controls="listatelefonia">
-                    📞 Servicios de Telefonía Movil
-                </button>
-            </div>
-
-            <!-- Contenedor collapse que contiene la lista de enlaces telefonia -->
-            <div class="collapse mb-3 w-50 mx-auto" id="listatelefonia">
-                <div class="card card-body">
-                    <div class="list-group fw-bold">
-                        <a href="#" class="list-group-item list-group-item-action" data-bs-toggle="modal"
-                            data-bs-target="#modalUno">Claro</a>
-                        <a href="#" class="list-group-item list-group-item-action" data-bs-toggle="modal"
-                            data-bs-target="#modalUno">Tigo</a>
-                        <a href="#" class="list-group-item list-group-item-action" data-bs-toggle="modal"
-                            data-bs-target="#modalUno">Digicel</a>
-                        <a href="#" class="list-group-item list-group-item-action" data-bs-toggle="modal"
-                            data-bs-target="#modalUno">Movistar</a>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="pb-5">
-            <!-- Botón que activa el collapse energia Agua potable-->
-            <div class="d-block w-50 mb-2 mx-auto">
-                <button class="btn btn-danger w-100 fw-bolder shadow" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#listaAgua" aria-expanded="false" aria-controls="listaAgua">
-                    💧 Servicios de Agua Potable
-                </button>
-            </div>
-
-            <!-- Contenedor collapse que contiene la lista de enlaces agua potable -->
-            <div class="collapse mb-3 w-50 mx-auto" id="listaAgua">
-                <div class="card card-body">
-                    <div class="list-group fw-bold">
-                        <a href="#" class="list-group-item list-group-item-action" data-bs-toggle="modal"
-                            data-bs-target="#modalUno">ANDA</a>
-                    </div>
-                </div>
+        <!-- Información adicional -->
+        <div class="alert alert-danger d-flex align-items-center" role="alert">
+            <div>
+                <i class="bi bi-info-circle-fill me-2"></i> Recuerde que los pagos realizados después de las 6:00 PM se
+                procesarán al siguiente día hábil.
             </div>
         </div>
     </div>
@@ -170,85 +161,11 @@
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">
         </script>
 
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
     <!-- Script personalizado -->
-    <script>
-        const modalUno = document.getElementById('modalUno');
-        modalUno.addEventListener('show.bs.modal', function (event) {
-            // El botón que activó el modal
-            const button = event.relatedTarget;
-
-            // Obtener data atributos
-            const contenedorBisabuelo = button.parentElement.parentElement.parentElement;
-            const idBisabuelo = contenedorBisabuelo.id;
-            const texto = button.textContent;
-            //generar nombre de categoria correcto
-            const categoria = generarNombreCategoria(idBisabuelo)
-
-            // Mostrar información en el modal
-            const modalBody = modalUno.querySelector('.modal-body');
-            modalBody.innerHTML = `
-            <!-- Información con estilo rojo/acento -->
-            <div class="alert alert-danger mb-3 border-0">
-                <div class="d-flex">
-                    <div class="me-3">
-                        <i class="bi bi-building fs-4 text-danger"></i>
-                    </div>
-                    <div>
-                        <strong class="text-dark">Servicios de ${categoria}</strong><br>
-                        <small class="text-muted">Colector: <strong>${texto}</strong></small>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Campo de entrada -->
-            <div class="mb-3">
-                <label class="form-label fw-semibold text-dark">
-                    <i class="bi bi-key text-danger me-1"></i>
-                    Identificador
-                </label>
-                <input type="text" 
-                    class="form-control border-danger" 
-                    id="referencia" 
-                    placeholder="Ej: 123456789" 
-                    required>
-                <div class="form-text text-muted">
-                    Ingrese su número de referencia
-                </div>
-            </div>
-    `;
-        });
-
-        function generarNombreCategoria(id) {
-            if (id == "listaEnergiaElectrica") {
-                return "Energía Electrica"
-            }
-            if (id == "listaInternet") {
-                return "Internet residencial"
-            }
-            if (id == "listatelefonia") {
-                return "Telefonía Móvil"
-            }
-            if (id == "listaAgua") {
-                return "Agua Potable"
-            }
-        }
-
-
-        function aplicarPago() {
-            // Cierra el modal manualmente
-            const modal = bootstrap.Modal.getInstance(document.getElementById('modalUno'));
-            modal.hide();
-
-            // Muestra alerta elegante
-            Swal.fire({
-                icon: 'success',
-                title: '¡Éxito!',
-                text: 'Pago aplicado con éxito',
-                confirmButtonColor: '#dc3545'
-            });
-        }
-
-    </script>
+    <script src="./script.js"></script>
 </body>
 
 </html>
