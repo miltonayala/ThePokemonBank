@@ -1,11 +1,228 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Pokemon Bank - Historial</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Pokemon Bank - Historial</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="assets/css/main.css" rel="stylesheet" />
+  <!--Kit para los iconos duotono de F.A.-->
+
+  <script src="https://kit.fontawesome.com/98424cc025.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <style>
+    body { background-image: url("assets/img/bg.png"); }
+    .app-shell { max-width: 1000px; min-height: 100vh; background: #fff; margin: 0 auto; }
+    .section-border { border-top: 4px solid var(--bs-danger); }
+    .month-btn.active { background: var(--bs-danger); color: #fff; }
+    .month-btn { min-width: 70px; }
+    .table thead th { background: var(--bs-danger); color: #fff; }
+  </style>
+  <!--CDN FA-Brands para los iconos sociales y footer-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+      <link rel="stylesheet" href="../demoChartjs-pagoServicios-footer/estilos.css" />
+      <!--Fin cosas del footer-->
+
 </head>
-<body>
-    
+<body class="bg-light">
+  <div class="app-shell">
+    <header class="bg-danger text-white p-3 d-flex align-items-center justify-content-between sticky-top shadow">
+            <a href="../panel.html" class="fw-bold fs-5 m-0 text-white text-decoration-none">ThePokeBank</a>
+      <button id="btnSalir" class="btn btn-sm btn-outline-light">
+        <i class="fa-duotone fa-solid fa-right-from-bracket me-1"></i> Salir
+      </button>
+    </header>
+
+    <main class="p-3">
+      <div class="section-border mb-4">
+        <div class="p-3 bg-body-tertiary">
+          <div class="d-flex align-items-start justify-content-between">
+            <i class="fa-duotone fa-solid fa-piggy-bank fs-3 me-3"></i>
+            <div class="flex-grow-1 ps-2 pt-0">
+              <span class="fw-semibold me-2" id="cuenta"></span>
+              <span>Cuenta de ahorros</span>
+              <div class="py-3 fw-semibold fs-3" id="saldo"></div>
+              <div class="d-flex align-items-center justify-content-between">
+                <span class="text-secondary small">Saldo disponible</span>
+                <button id="btnCompartir" class="btn btn-link btn-sm text-decoration-none text-secondary">
+                  <i class="fa-duotone fa-solid fa-share me-1"></i>Compartir numero
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="fw-medium text-dark fs-6 p-3 mb-2">
+        <i class="fa-duotone fa-solid fa-clock-rotate-left me-2"></i>Historial de transacciones
+      </h2>
+
+      <div class="mb-3 d-flex flex-wrap gap-2">
+        <button class="btn btn-outline-danger btn-sm month-btn active" data-month="01">Ene</button>
+        <button class="btn btn-outline-danger btn-sm month-btn" data-month="02">Feb</button>
+        <button class="btn btn-outline-danger btn-sm month-btn" data-month="03">Mar</button>
+        <button class="btn btn-outline-danger btn-sm month-btn" data-month="04">Abr</button>
+        <button class="btn btn-outline-danger btn-sm month-btn" data-month="05">May</button>
+        <button class="btn btn-outline-danger btn-sm month-btn" data-month="06">Jun</button>
+        <button class="btn btn-outline-danger btn-sm month-btn" data-month="07">Jul</button>
+        <button class="btn btn-outline-danger btn-sm month-btn" data-month="08">Ago</button>
+        <button class="btn btn-outline-danger btn-sm month-btn" data-month="09">Sep</button>
+        <button class="btn btn-outline-danger btn-sm month-btn" data-month="10">Oct</button>
+        <button class="btn btn-outline-danger btn-sm month-btn" data-month="11">Nov</button>
+        <button class="btn btn-outline-danger btn-sm month-btn" data-month="12">Dic</button>
+      </div>
+
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover align-middle shadow-sm">
+          <thead>
+            <tr>
+              <th>Fecha</th>
+              <th>Comercio</th>
+              <th>Monto</th>
+              <th>Código</th>
+            </tr>
+          </thead>
+          <tbody id="historialBody">
+            <tr><td colspan="4" class="text-center text-secondary">Cargando...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+<footer class="custom-footer mt-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 mb-4 mb-md-0">
+        <h4 class="fw-bold mb-3">The Pokemon Bank</h4>
+        <p class="somos mb-0">
+          TPB es una institución financiera a tu servicio, ofreciendo las
+          mejores soluciones bancarias para entrenadores Pokémon.
+        </p>
+        <div class="mt-0 mb-0">
+          <img src="../assets/img/logo_pdf.png" alt="The Pokemon Bank" class="img-fluid" style="max-height: 100px;">
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-4 mb-md-0">
+        <h4 class="fw-bold mb-3">Enlaces útiles</h4>
+        <ul>
+          <li><a href="#" class="link">Contacto y Sugerencias</a></li>
+          <li><a href="#" class="link">Política de privacidad</a></li>
+          <li><a href="#" class="link">FAQ</a></li>
+          <li><a href="#" class="link">Términos y condiciones</a></li>
+          <li><a href="#" class="link">Tasas & Comisiones</a></li>
+        </ul>
+      </div>
+
+      <div class="col-md-4">
+        <h4 class="fw-bold mb-3">Síguenos</h4>
+<div class="social-icons d-flex gap-3">
+  <a class="link" href="https://x.com/" target="_blank" rel="noopener noreferrer">
+    <i class="fa-brands fa-x-twitter fa-lg"></i>
+  </a>
+  <a class="link" href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
+    <i class="fa-brands fa-facebook-f fa-lg"></i>
+  </a>
+  <a class="link" href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">
+    <i class="fa-brands fa-youtube fa-lg"></i>
+  </a>
+  <a class="link" href="https://sv.linkedin.com/" target="_blank" rel="noopener noreferrer">
+    <i class="fa-brands fa-linkedin fa-lg"></i>
+  </a>
+</div>
+
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom text-center mt-4">
+    <div class="container">
+      <p class="mb-0">Todos los derechos reservados. TPB / EquipoDAW 2025 &copy;</p>
+    </div>
+  </div>
+</footer>
+  </div>
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const datosCliente = JSON.parse(localStorage.getItem("usuario"));
+      const cuentaEl = document.getElementById("cuenta");
+      const saldoEl = document.getElementById("saldo");
+      const tbody = document.getElementById("historialBody");
+
+      if (!datosCliente || !datosCliente.login) {
+        // Si no hay login, mandar al inicio
+        location.href = "index.html";
+        return;
+      }
+
+      // Mostrar datos de usuario
+      cuentaEl.textContent = datosCliente.cuenta;
+      saldoEl.textContent = "$" + datosCliente.saldo.toFixed(2);
+
+      // Botón compartir
+      document.getElementById("btnCompartir").addEventListener("click", () => {
+        if (navigator.share) {
+          navigator.share({ text: datosCliente.cuenta.toString() });
+        }
+      });
+
+      // Botón salir
+      document.getElementById("btnSalir").addEventListener("click", () => {
+        datosCliente.login = false;
+        localStorage.setItem("usuario", JSON.stringify(datosCliente));
+        location.href = "/";
+      });
+
+      // Render historial
+      function getMonth(fecha) {
+        return fecha.slice(5, 7);
+      }
+
+      function renderTable(month, transactions) {
+        tbody.innerHTML = "";
+        const filtered = transactions.filter(tx => getMonth(tx.Fecha) === month);
+
+        if (filtered.length === 0) {
+          tbody.innerHTML = `<tr><td colspan="4" class="text-center text-secondary">Sin transacciones para este mes.</td></tr>`;
+          return;
+        }
+
+        filtered.forEach(tx => {
+          tbody.innerHTML += `
+            <tr>
+              <td>${tx.Fecha.slice(5, 7)}/${tx.Fecha.slice(8, 10)}</td>
+              <td>${tx.Comercio}</td>
+              <td class="${tx.Monto < 0 ? 'text-danger' : 'text-success'}">
+                ${tx.Monto < 0 ? '-' : '+'}$${Math.abs(tx.Monto).toFixed(2)}
+              </td>
+              <td>${tx["Código"]}</td>
+            </tr>
+          `;
+        });
+      }
+
+      let userTransactions = [];
+
+      fetch("assets/json/transactions.json")
+        .then(res => res.json())
+        .then(data => {
+          userTransactions = data.filter(tx => tx.AccountNumber == datosCliente.cuenta);
+          renderTable("01", userTransactions);
+
+          document.querySelectorAll(".month-btn").forEach(btn => {
+            btn.addEventListener("click", function() {
+              document.querySelectorAll(".month-btn").forEach(b => b.classList.remove("active"));
+              this.classList.add("active");
+              renderTable(this.dataset.month, userTransactions);
+            });
+          });
+        })
+        .catch(() => {
+          tbody.innerHTML = `<tr><td colspan="4" class="text-center text-danger">Error cargando transacciones.</td></tr>`;
+        });
+    });
+  </script>
 </body>
 </html>

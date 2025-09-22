@@ -1,171 +1,193 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <!-- SweetAlert2 CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
-    <!-- SweetAlert2 JS -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
-    <title>Pago de Servicios - Banco</title>
-    <link rel="stylesheet" href="./estilos.css">
-</head>
-
-<body class="mt-5">
-
-
-    <div class="container mb-5">
-        <!-- Título principal -->
-        <div class="row mb-4">
-            <div class="col">
-                <h2 class="fw-bold text-dark mb-1"><i class="bi bi-credit-card"></i> Pago de Servicios</h2>
-                <p class="text-muted">Realice el pago de sus servicios de forma rápida y segura</p>
-            </div>
-        </div>
-
-        <!-- Tarjeta de categorías -->
-        <div class="card service-card border-0 mb-4">
-            <div class="card-header bg-white py-3">
-                <h5 class="card-title mb-0 fw-bold text-dark">Seleccione una categoría de servicio</h5>
-            </div>
-            <div class="card-body">
-                <!-- Energía Eléctrica -->
-                <div class="mb-3">
-                    <button
-                        class="btn btn-outline-danger w-100 text-start d-flex justify-content-between align-items-center fw-bold py-3"
-                        type="button" data-bs-toggle="collapse" data-bs-target="#listaEnergiaElectrica"
-                        aria-expanded="false" aria-controls="listaEnergiaElectrica">
-                        <span><span class="service-icon">⚡</span> Servicios de Energía Eléctrica</span>
-                        <i class="bi bi-chevron-down"></i>
-                    </button>
-
-                    <div class="collapse mt-2" id="listaEnergiaElectrica">
-                        <div class="list-group">
-                            <a href="#" class="list-group-item list-group-item-action service-item py-2"
-                                data-bs-toggle="modal" data-bs-target="#modalUno">CAESS</a>
-                            <a href="#" class="list-group-item list-group-item-action service-item py-2"
-                                data-bs-toggle="modal" data-bs-target="#modalUno">CLESSA</a>
-                            <a href="#" class="list-group-item list-group-item-action service-item py-2"
-                                data-bs-toggle="modal" data-bs-target="#modalUno">DEL SUR</a>
-                            <a href="#" class="list-group-item list-group-item-action service-item py-2"
-                                data-bs-toggle="modal" data-bs-target="#modalUno">DEUSEM</a>
-                            <a href="#" class="list-group-item list-group-item-action service-item py-2"
-                                data-bs-toggle="modal" data-bs-target="#modalUno">EEO</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Internet -->
-                <div class="mb-3">
-                    <button
-                        class="btn btn-outline-danger w-100 text-start d-flex justify-content-between align-items-center fw-bold py-3"
-                        type="button" data-bs-toggle="collapse" data-bs-target="#listaInternet" aria-expanded="false"
-                        aria-controls="listaInternet">
-                        <span><span class="service-icon">🌐</span> Servicios de Internet residencial</span>
-                        <i class="bi bi-chevron-down"></i>
-                    </button>
-
-                    <div class="collapse mt-2" id="listaInternet">
-                        <div class="list-group">
-                            <a href="#" class="list-group-item list-group-item-action service-item py-2"
-                                data-bs-toggle="modal" data-bs-target="#modalUno">Claro</a>
-                            <a href="#" class="list-group-item list-group-item-action service-item py-2"
-                                data-bs-toggle="modal" data-bs-target="#modalUno">Tigo</a>
-                            <a href="#" class="list-group-item list-group-item-action service-item py-2"
-                                data-bs-toggle="modal" data-bs-target="#modalUno">Salnet</a>
-                            <a href="#" class="list-group-item list-group-item-action service-item py-2"
-                                data-bs-toggle="modal" data-bs-target="#modalUno">Starlink</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Telefonía -->
-                <div class="mb-3">
-                    <button
-                        class="btn btn-outline-danger w-100 text-start d-flex justify-content-between align-items-center fw-bold py-3"
-                        type="button" data-bs-toggle="collapse" data-bs-target="#listatelefonia" aria-expanded="false"
-                        aria-controls="listatelefonia">
-                        <span><span class="service-icon">📞</span> Servicios de Telefonía Móvil</span>
-                        <i class="bi bi-chevron-down"></i>
-                    </button>
-
-                    <div class="collapse mt-2" id="listatelefonia">
-                        <div class="list-group">
-                            <a href="#" class="list-group-item list-group-item-action service-item py-2"
-                                data-bs-toggle="modal" data-bs-target="#modalUno">Claro</a>
-                            <a href="#" class="list-group-item list-group-item-action service-item py-2"
-                                data-bs-toggle="modal" data-bs-target="#modalUno">Tigo</a>
-                            <a href="#" class="list-group-item list-group-item-action service-item py-2"
-                                data-bs-toggle="modal" data-bs-target="#modalUno">Digicel</a>
-                            <a href="#" class="list-group-item list-group-item-action service-item py-2"
-                                data-bs-toggle="modal" data-bs-target="#modalUno">Movistar</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Agua -->
-                <div class="mb-3">
-                    <button
-                        class="btn btn-outline-danger w-100 text-start d-flex justify-content-between align-items-center fw-bold py-3"
-                        type="button" data-bs-toggle="collapse" data-bs-target="#listaAgua" aria-expanded="false"
-                        aria-controls="listaAgua">
-                        <span><span class="service-icon">💧</span> Servicios de Agua Potable</span>
-                        <i class="bi bi-chevron-down"></i>
-                    </button>
-
-                    <div class="collapse mt-2" id="listaAgua">
-                        <div class="list-group">
-                            <a href="#" class="list-group-item list-group-item-action service-item py-2"
-                                data-bs-toggle="modal" data-bs-target="#modalUno">ANDA</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Información adicional -->
-        <div class="alert alert-danger d-flex align-items-center" role="alert">
-            <div>
-                <i class="bi bi-info-circle-fill me-2"></i> Recuerde que los pagos realizados después de las 6:00 PM se
-                procesarán al siguiente día hábil.
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal -->
-    <div class="modal fade" id="modalUno" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">PAGO DE COLECTORES</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <!-- Codigo insertado por JS -->
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" onclick="aplicarPago()">
-                        Aplicar Pago
-                    </button>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Script bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">
-        </script>
-
-    <!-- Bootstrap Icons -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pago de Servicios - The Pokemon Bank</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="assets/css/main.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="./estilos.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./script.js" defer></script>
+<style>
+    body { background-image: url("../assets/img/bg.png"); }
+    .app-shell { max-width: 1000px; min-height: 100vh; background: #fff; margin: 0 auto; }
+    .section-border { border-top: 4px solid var(--bs-danger); }
+    .month-btn.active { background: var(--bs-danger); color: #fff; }
+    .month-btn { min-width: 70px; }
+    .table thead th { background: var(--bs-danger); color: #fff; }
+  </style>
+</head>
+<body class="bg-light">
+    <div class="app-shell">
+        <header class="bg-danger text-white p-3 d-flex align-items-center justify-content-between sticky-top shadow">
+            <a href="../panel.html" class="fw-bold fs-5 m-0 text-white text-decoration-none">ThePokeBank</a>
+            <button id="btnSalir" class="btn btn-sm btn-outline-light">
+                <i class="fa-duotone fa-solid fa-right-from-bracket me-1"></i> Salir
+            </button>
+        </header>
 
-    <!-- Script personalizado -->
-    <script src="./script.js"></script>
+        <main class="p-3">
+            <div class="section-border mb-4">
+                <div class="p-3 bg-body-tertiary">
+                    <h2 class="fw-bold text-dark mb-1"><i class="bi bi-credit-card"></i> Pago de Servicios</h2>
+                    <p class="text-muted">Realice el pago de sus servicios de forma rápida y segura</p>
+                </div>
+            </div>
+
+            <!-- Tarjeta de categorías -->
+            <div class="card service-card border-0 mb-4">
+                <div class="card-header bg-white py-3">
+                    <h5 class="card-title mb-0 fw-bold text-dark">Seleccione una categoría de servicio</h5>
+                </div>
+                <div class="card-body">
+                    <!-- Energía Eléctrica -->
+                    <div class="mb-3">
+                        <button class="btn btn-outline-danger w-100 text-start d-flex justify-content-between align-items-center fw-bold py-3"
+                            type="button" data-bs-toggle="collapse" data-bs-target="#listaEnergiaElectrica"
+                            aria-expanded="false" aria-controls="listaEnergiaElectrica">
+                            <span><span class="service-icon">⚡</span> Servicios de Energía Eléctrica</span>
+                            <i class="bi bi-chevron-down"></i>
+                        </button>
+                        <div class="collapse mt-2" id="listaEnergiaElectrica">
+                            <div class="list-group">
+                                <a href="#" class="list-group-item list-group-item-action service-item py-2" data-bs-toggle="modal" data-bs-target="#modalUno">CAESS</a>
+                                <a href="#" class="list-group-item list-group-item-action service-item py-2" data-bs-toggle="modal" data-bs-target="#modalUno">CLESSA</a>
+                                <a href="#" class="list-group-item list-group-item-action service-item py-2" data-bs-toggle="modal" data-bs-target="#modalUno">DEL SUR</a>
+                                <a href="#" class="list-group-item list-group-item-action service-item py-2" data-bs-toggle="modal" data-bs-target="#modalUno">DEUSEM</a>
+                                <a href="#" class="list-group-item list-group-item-action service-item py-2" data-bs-toggle="modal" data-bs-target="#modalUno">EEO</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Internet -->
+                    <div class="mb-3">
+                        <button class="btn btn-outline-danger w-100 text-start d-flex justify-content-between align-items-center fw-bold py-3"
+                            type="button" data-bs-toggle="collapse" data-bs-target="#listaInternet" aria-expanded="false"
+                            aria-controls="listaInternet">
+                            <span><span class="service-icon">🌐</span> Servicios de Internet residencial</span>
+                            <i class="bi bi-chevron-down"></i>
+                        </button>
+                        <div class="collapse mt-2" id="listaInternet">
+                            <div class="list-group">
+                                <a href="#" class="list-group-item list-group-item-action service-item py-2" data-bs-toggle="modal" data-bs-target="#modalUno">Claro</a>
+                                <a href="#" class="list-group-item list-group-item-action service-item py-2" data-bs-toggle="modal" data-bs-target="#modalUno">Tigo</a>
+                                <a href="#" class="list-group-item list-group-item-action service-item py-2" data-bs-toggle="modal" data-bs-target="#modalUno">Salnet</a>
+                                <a href="#" class="list-group-item list-group-item-action service-item py-2" data-bs-toggle="modal" data-bs-target="#modalUno">Starlink</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Telefonía -->
+                    <div class="mb-3">
+                        <button class="btn btn-outline-danger w-100 text-start d-flex justify-content-between align-items-center fw-bold py-3"
+                            type="button" data-bs-toggle="collapse" data-bs-target="#listatelefonia" aria-expanded="false"
+                            aria-controls="listatelefonia">
+                            <span><span class="service-icon">📞</span> Servicios de Telefonía Móvil</span>
+                            <i class="bi bi-chevron-down"></i>
+                        </button>
+                        <div class="collapse mt-2" id="listatelefonia">
+                            <div class="list-group">
+                                <a href="#" class="list-group-item list-group-item-action service-item py-2" data-bs-toggle="modal" data-bs-target="#modalUno">Claro</a>
+                                <a href="#" class="list-group-item list-group-item-action service-item py-2" data-bs-toggle="modal" data-bs-target="#modalUno">Tigo</a>
+                                <a href="#" class="list-group-item list-group-item-action service-item py-2" data-bs-toggle="modal" data-bs-target="#modalUno">Digicel</a>
+                                <a href="#" class="list-group-item list-group-item-action service-item py-2" data-bs-toggle="modal" data-bs-target="#modalUno">Movistar</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Agua -->
+                    <div class="mb-3">
+                        <button class="btn btn-outline-danger w-100 text-start d-flex justify-content-between align-items-center fw-bold py-3"
+                            type="button" data-bs-toggle="collapse" data-bs-target="#listaAgua" aria-expanded="false"
+                            aria-controls="listaAgua">
+                            <span><span class="service-icon">💧</span> Servicios de Agua Potable</span>
+                            <i class="bi bi-chevron-down"></i>
+                        </button>
+                        <div class="collapse mt-2" id="listaAgua">
+                            <div class="list-group">
+                                <a href="#" class="list-group-item list-group-item-action service-item py-2" data-bs-toggle="modal" data-bs-target="#modalUno">ANDA</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Información adicional -->
+            <div class="alert alert-danger d-flex align-items-center" role="alert">
+                <div>
+                    <i class="bi bi-info-circle-fill me-2"></i> Recuerde que los pagos realizados después de las 6:00 PM se procesarán al siguiente día hábil.
+                </div>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="modalUno" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">PAGO DE COLECTORES</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <!-- Codigo insertado por JS -->
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" onclick="aplicarPago()">Aplicar Pago</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="custom-footer mt-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 mb-4 mb-md-0">
+                        <h4 class="fw-bold mb-3">The Pokemon Bank</h4>
+                        <p class="somos mb-0">
+                            TPB es una institución financiera a tu servicio, ofreciendo las mejores soluciones bancarias para entrenadores Pokémon.
+                        </p>
+                        <div class="mt-0 mb-0">
+                            <img src="../assets/img/logo_pdf.png" alt="The Pokemon Bank" class="img-fluid" style="max-height: 100px;">
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4 mb-md-0">
+                        <h4 class="fw-bold mb-3">Enlaces útiles</h4>
+                        <ul>
+                            <li><a href="#" class="link">Contacto y Sugerencias</a></li>
+                            <li><a href="#" class="link">Política de privacidad</a></li>
+                            <li><a href="#" class="link">FAQ</a></li>
+                            <li><a href="#" class="link">Términos y condiciones</a></li>
+                            <li><a href="#" class="link">Tasas & Comisiones</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <h4 class="fw-bold mb-3">Síguenos</h4>
+                        <div class="social-icons d-flex gap-3">
+                            <a class="link" href="https://x.com/" target="_blank" rel="noopener noreferrer">
+                                <i class="fa-brands fa-x-twitter fa-lg"></i>
+                            </a>
+                            <a class="link" href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
+                                <i class="fa-brands fa-facebook-f fa-lg"></i>
+                            </a>
+                            <a class="link" href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">
+                                <i class="fa-brands fa-youtube fa-lg"></i>
+                            </a>
+                            <a class="link" href="https://sv.linkedin.com/" target="_blank" rel="noopener noreferrer">
+                                <i class="fa-brands fa-linkedin fa-lg"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom text-center mt-4">
+                <div class="container">
+                    <p class="mb-0">Todos los derechos reservados. TPB / EquipoDAW 2025 &copy;</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>

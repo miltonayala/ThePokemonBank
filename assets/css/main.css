@@ -10,3 +10,23 @@
 .texto-header {
   font-family: "Public Sans", sans-serif;
 }
+
+table, th, td {
+  border-left: none !important;
+  border-right: none !important;
+}
+
+/* Colores distintos para odd & even rows */
+
+#historialBody tr:nth-child(odd) {
+  background-color: #f8f9fa; 
+}
+#historialBody tr:nth-child(even) {
+  background-color: #ffffff; 
+}
+
+#historialBody tr:hover {
+  background-color: #ffeaea; /* light red tint */
+  cursor: pointer;
+}
+
