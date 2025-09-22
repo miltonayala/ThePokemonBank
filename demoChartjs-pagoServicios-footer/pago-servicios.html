@@ -12,16 +12,19 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="./script.js" defer></script>
-    <style>
-        body { background-image: url("assets/img/bg.png"); }
-        .app-shell { max-width: 1000px; min-height: 100vh; background: #fff; margin: 0 auto; }
-        .section-border { border-top: 4px solid var(--bs-danger); }
-    </style>
+<style>
+    body { background-image: url("../assets/img/bg.png"); }
+    .app-shell { max-width: 1000px; min-height: 100vh; background: #fff; margin: 0 auto; }
+    .section-border { border-top: 4px solid var(--bs-danger); }
+    .month-btn.active { background: var(--bs-danger); color: #fff; }
+    .month-btn { min-width: 70px; }
+    .table thead th { background: var(--bs-danger); color: #fff; }
+  </style>
 </head>
 <body class="bg-light">
     <div class="app-shell">
         <header class="bg-danger text-white p-3 d-flex align-items-center justify-content-between sticky-top shadow">
-            <h1 class="fw-bold fs-5 m-0">ThePokeBank</h1>
+            <a href="../panel.html" class="fw-bold fs-5 m-0 text-white text-decoration-none">ThePokeBank</a>
             <button id="btnSalir" class="btn btn-sm btn-outline-light">
                 <i class="fa-duotone fa-solid fa-right-from-bracket me-1"></i> Salir
             </button>
