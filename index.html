@@ -50,11 +50,28 @@
     <div class="bg-danger w-100 mibg position-relative overflow-hidden" style="min-height: 100svh;">
       <!-- Capa de contenido -->
       <div class="position-relative z-3 d-flex flex-column">
-        <header class="py-4 text-center">
+        <header class="py-4 text-center d-flex align-items-center justify-content-center">
+          <img src="assets/img/pokeball.png" alt="Pokeball Logo" style="width:48px; height:48px; margin-right:12px;">
           <h1 class="texto-header text-white fw-bold display-5 m-0">ThePokeBank</h1>
         </header>
+                  <!-- Caja de acceso -->
+          <div class="bg-glass border rounded-4 shadow-lg mx-auto mt-5 p-4" style="max-width: 720px;">
+            <h2 class="fs-5 fw-semibold text-white text-center text-uppercase mb-2">Ingresar a mi banca</h2>
+            <h3 class="fw-semibold text-white text-center text-uppercase mb-4">DIGITA TU PIN:</h3>
 
+            <div class="mx-auto" style="max-width: 540px;">
+              <div class="input-group">
+                <input type="password" id="pin" class="form-control text-center fs-1 bg-transparent border-0 text-dark" placeholder="****" aria-label="PIN" />
+                <button class="btn btn-transparent px-3" id="btnLogin" type="button" aria-label="Ingresar">
+                  <i class="fa-solid fa-arrow-right text-white fs-3"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Fin caja de acceso -->
+<br><br><br>
         <div class="container px-4">
+          
           <!-- Tres bloques: se apilan en móvil, 3 columnas en md+ -->
           <div class="row g-4 align-items-stretch justify-content-center">
             <div class="col-12 col-md-4">
@@ -82,20 +99,7 @@
             </div>
           </div>
 
-          <!-- Caja de acceso -->
-          <div class="bg-glass border rounded-4 shadow-lg mx-auto mt-5 p-4" style="max-width: 720px;">
-            <h2 class="fs-5 fw-semibold text-white text-center text-uppercase mb-2">Ingresar a mi banca</h2>
-            <h3 class="fw-semibold text-white text-center text-uppercase mb-4">DIGITA TU PIN:</h3>
 
-            <div class="mx-auto" style="max-width: 540px;">
-              <div class="input-group">
-                <input type="password" id="pin" class="form-control text-center fs-1 bg-transparent border-0 text-dark" placeholder="****" aria-label="PIN" />
-                <button class="btn btn-transparent px-3" id="btnLogin" type="button" aria-label="Ingresar">
-                  <i class="fa-solid fa-arrow-right text-white fs-3"></i>
-                </button>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
 
