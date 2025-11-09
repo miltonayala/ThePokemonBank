@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // valores por defecto
   
   let usuario = {
-    cuenta: 1236548215,
+    cuenta: '0987654321',
     nombre: "Ash Ketchum",
     pin: 1234,
     saldo: 500.00,
@@ -16,9 +16,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   let inputPin = document.getElementById("pin");
   let inputUsuario = document.getElementById("usuario");
-  let btnLogin = document.getElementById("btnLogin");
+  const form = document.getElementById("formLogin");
 
-  btnLogin.addEventListener("submit", (e) => {
+  form.addEventListener("submit", (e) => {
     e.preventDefault();
     if (inputPin.value.trim().length == 0 || inputUsuario.value.trim().length == 0) {
       Swal.fire({
