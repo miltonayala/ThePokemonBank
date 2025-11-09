@@ -67,7 +67,7 @@
                 <i class="fa-duotone fa-solid fa-piggy-bank fs-3 me-3"></i>
                 <div>
                     <span class="fw-semibold me-2" id="cuenta"></span>
-                    <span>Cuenta de ahorros</span>
+                    <span>Cuenta de ahorros | </span><span id="nombreUsuario"></span>
                     <div class="py-3 fw-semibold fs-3" id="saldo"></div>
                     <span class="text-secondary small">Saldo disponible</span>
                 </div>
@@ -250,6 +250,36 @@
 
 <!-- MAIN PAGE SCRIPT -->
 <script>
+
+function agregarTransaccion(accountNumber, comercio, monto) {
+    // Load existing transactions
+    let trans = JSON.parse(localStorage.getItem("transactions")) || [];
+
+    // Generate unique code
+    const codigo = "PAY" + Math.floor(10000 + Math.random() * 90000);
+
+    // Today's date in YYYY-MM-DD
+    const hoy = new Date();
+    const fecha = hoy.toISOString().slice(0, 10);
+
+    // Build the transaction object
+    const nueva = {
+        AccountNumber: accountNumber,
+        Fecha: fecha,
+        Comercio: comercio,
+        Monto: monto,
+        Código: codigo
+    };
+
+    // Add to array
+    trans.push(nueva);
+
+    // Save back to LS
+    localStorage.setItem("transactions", JSON.stringify(trans));
+
+    return nueva;
+}
+
 let selectedCategory = "";
 let selectedCompany = "";
 
@@ -258,6 +288,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const usuario = JSON.parse(localStorage.getItem("usuario"));
     document.getElementById("cuenta").textContent = usuario.cuenta;
     document.getElementById("saldo").textContent = "$" + usuario.saldo.toFixed(2);
+    document.getElementById("nombreUsuario").textContent = usuario.nombre;
+
 
     // Logout
     document.getElementById("btnSalir").addEventListener("click", () => {
@@ -333,6 +365,14 @@ function aplicarPago() {
     usuario.saldo -= monto;
     localStorage.setItem("usuario", JSON.stringify(usuario));
     document.getElementById("saldo").textContent = "$" + usuario.saldo.toFixed(2);
+
+// Agregar pago al historial
+agregarTransaccion(
+    usuario.cuenta,
+    `${selectedCategory} - ${selectedCompany}`,
+    -monto
+);
+
 
     Swal.fire({
         icon: "success",

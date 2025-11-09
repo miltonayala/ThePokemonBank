@@ -24,199 +24,332 @@
 </head>
 
 <body class="bg-light">
-      <script>
-      function requireLogin() {
-    const usuario = JSON.parse(localStorage.getItem('usuario') || '{}');
-
-    // If no user OR no login flag OR login is false
-    if (!usuario || usuario.login !== true) {
-        window.location.href = 'index.html';
-        throw new Error('Not logged in');
-    }
+<script>
+function requireLogin() {
+  const usuario = JSON.parse(localStorage.getItem('usuario') || '{}');
+  if (!usuario || usuario.login !== true) {
+    window.location.href = 'index.html';
+    throw new Error('Not logged in');
+  }
 }
 requireLogin();
-    </script>
-  <div class="app-shell">
-    <header class="bg-danger text-white p-3 d-flex align-items-center justify-content-between sticky-top shadow">
-      <a href="../panel.html" class="fw-bold fs-5 m-0 text-white text-decoration-none">ThePokeBank</a>
-      <button id="btnSalir" class="btn btn-sm btn-outline-light">
-        <i class="fa-duotone fa-solid fa-right-from-bracket me-1"></i> Salir
-      </button>
-    </header>
+</script>
 
-    <main class="p-3">
-      <div class="section-border mb-4">
-        <div class="p-3 bg-body-tertiary">
-          <div class="d-flex align-items-start justify-content-between">
-            <i class="fa-duotone fa-solid fa-chart-column fs-3 me-3"></i>
-            <div class="flex-grow-1 ps-2 pt-0">
-              <span class="fw-semibold me-2" id="cuenta"></span>
-              <span>Cuenta de ahorros</span>
-              <div class="py-3 fw-semibold fs-3" id="saldo"></div>
-              <div class="d-flex align-items-center justify-content-between">
-                <span class="text-secondary small">Saldo disponible</span>
-                <button id="btnCompartir" class="btn btn-link btn-sm text-decoration-none text-secondary">
-                  <i class="fa-duotone fa-solid fa-share me-1"></i>Compartir numero
-                </button>
-              </div>
-            </div>
+<div class="app-shell">
+<header class="bg-danger text-white p-3 d-flex align-items-center justify-content-between sticky-top shadow">
+  <a href="../panel.html" class="fw-bold fs-5 m-0 text-white text-decoration-none">ThePokeBank</a>
+  <button id="btnSalir" class="btn btn-sm btn-outline-light">
+    <i class="fa-duotone fa-solid fa-right-from-bracket me-1"></i> Salir
+  </button>
+</header>
+
+<main class="p-3">
+  <div class="section-border mb-4">
+    <div class="p-3 bg-body-tertiary">
+      <div class="d-flex align-items-start justify-content-between">
+        <i class="fa-duotone fa-solid fa-chart-column fs-3 me-3"></i>
+        <div class="flex-grow-1 ps-2 pt-0">
+          <span class="fw-semibold me-2" id="cuenta"></span>
+          <span>Cuenta de ahorros</span>
+          <div class="py-3 fw-semibold fs-3" id="saldo"></div>
+          <div class="d-flex align-items-center justify-content-between">
+            <span class="text-secondary small">Saldo disponible</span>
+            <button id="btnCompartir" class="btn btn-link btn-sm text-decoration-none text-secondary">
+              <i class="fa-duotone fa-solid fa-share me-1"></i>Compartir numero
+            </button>
           </div>
         </div>
       </div>
-
-      <h2 class="fw-medium text-dark fs-6 p-3 mb-3">
-        <i class="fa-duotone fa-solid fa-chart-pie me-2"></i>Visualización en gráficas
-      </h2>
-
-      <div class="row g-3">
-        <div class="col-lg-6">
-          <div class="card shadow-sm h-100">
-            <div class="card-body">
-              <h5 class="card-title mb-3">Distribución por tipo de transacción</h5>
-              <div class="chart-wrapper">
-                <canvas id="txTipoChart" aria-label="Gráfico de tipos" role="img"></canvas>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-6">
-          <div class="card shadow-sm h-100">
-            <div class="card-body">
-              <h5 class="card-title mb-3">Montos por mes (Depósitos vs Retiros)</h5>
-              <div class="chart-wrapper">
-                <canvas id="montosMensualesChart" aria-label="Gráfico de montos mensuales" role="img"></canvas>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-6">
-          <div class="card shadow-sm h-100">
-            <div class="card-body">
-              <h5 class="card-title mb-3">Saldo en el tiempo</h5>
-              <div class="chart-wrapper">
-                <canvas id="saldoTiempoChart" aria-label="Gráfico de saldo en el tiempo" role="img"></canvas>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-6">
-          <div class="card shadow-sm h-100">
-            <div class="card-body">
-              <div class="d-flex align-items-center justify-content-between mb-2">
-                <h5 class="card-title mb-0">Pagos por servicio</h5>
-                <small class="text-secondary">Luz, Internet, Telefonía, Agua, Manutención…</small>
-              </div>
-              <div class="chart-wrapper">
-                <canvas id="pagosServicioChart" aria-label="Gráfico de pagos por servicio" role="img"></canvas>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-12">
-          <div class="card shadow-sm">
-            <div class="card-body d-flex flex-column flex-md-row align-items-md-center justify-content-between">
-              <div class="mb-3 mb-md-0">
-                <h5 class="card-title mb-1">Reporte PDF</h5>
-                <small class="text-secondary">Incluye últimos movimientos y totales.</small>
-              </div>
-              <div>
-                <button id="btnDescargarPDF" class="btn btn-danger">
-                  <i class="fa-solid fa-file-arrow-down me-1"></i> Descargar PDF
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="text-center mt-4">
-        <a href="historial.html" class="btn btn-outline-danger">
-          <i class="fa-duotone fa-solid fa-clock-rotate-left me-1"></i> Volver al historial
-        </a>
-      </div>
-    </main>
-
-    <footer class="custom-footer mt-5">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4 mb-4 mb-md-0">
-            <h4 class="fw-bold mb-3">The Pokemon Bank</h4>
-            <p class="somos mb-0">
-              TPB es una institución financiera a tu servicio, ofreciendo las
-              mejores soluciones bancarias para entrenadores Pokémon.
-            </p>
-            <div class="mt-0 mb-0">
-              <img src="../assets/img/logo_pdf.png" alt="The Pokemon Bank" class="img-fluid" style="max-height: 100px;">
-            </div>
-          </div>
-
-          <div class="col-md-4 mb-4 mb-md-0">
-            <h4 class="fw-bold mb-3">Enlaces útiles</h4>
-            <ul>
-              <li><a href="#" class="link">Contacto y Sugerencias</a></li>
-              <li><a href="#" class="link">Política de privacidad</a></li>
-              <li><a href="#" class="link">FAQ</a></li>
-              <li><a href="#" class="link">Términos y condiciones</a></li>
-              <li><a href="#" class="link">Tasas & Comisiones</a></li>
-            </ul>
-          </div>
-
-          <div class="col-md-4">
-            <h4 class="fw-bold mb-3">Síguenos</h4>
-            <div class="social-icons d-flex gap-3">
-              <a class="link" href="https://x.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-x-twitter fa-lg"></i></a>
-              <a class="link" href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook-f fa-lg"></i></a>
-              <a class="link" href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-youtube fa-lg"></i></a>
-              <a class="link" href="https://sv.linkedin.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin fa-lg"></i></a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="footer-bottom text-center mt-4">
-        <div class="container">
-          <p class="mb-0">Todos los derechos reservados. TPB / EquipoDAW 2025 &copy;</p>
-        </div>
-      </div>
-    </footer>
+    </div>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
-  <script src="assets/js/charts.js"></script>
-  
-  <script src="https://cdn.jsdelivr.net/npm/jspdf-autotable@3.8.2/dist/jspdf.plugin.autotable.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
-  <script src="assets/js/pdf.js"></script>
+  <h2 class="fw-medium text-dark fs-6 p-3 mb-3">
+    <i class="fa-duotone fa-solid fa-chart-pie me-2"></i>Visualización en gráficas
+  </h2>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const datosCliente = JSON.parse(localStorage.getItem("usuario"));
-      const cuentaEl = document.getElementById("cuenta");
-      const saldoEl = document.getElementById("saldo");
+  <div class="row g-3">
+    <div class="col-lg-6">
+      <div class="card shadow-sm h-100">
+        <div class="card-body">
+          <h5 class="card-title mb-3">Distribución por tipo de transacción</h5>
+          <div class="chart-wrapper">
+            <canvas id="txTipoChart"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
 
-      if (!datosCliente || !datosCliente.login) {
-        location.href = "index.html";
-        return;
-      }
+    <div class="col-lg-6">
+      <div class="card shadow-sm h-100">
+        <div class="card-body">
+          <h5 class="card-title mb-3">Montos por mes (Depósitos vs Retiros)</h5>
+          <div class="chart-wrapper">
+            <canvas id="montosMensualesChart"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
 
-      cuentaEl.textContent = datosCliente.cuenta;
-      saldoEl.textContent = "$" + Number(datosCliente.saldo || 0).toFixed(2);
+    <div class="col-lg-6">
+      <div class="card shadow-sm h-100">
+        <div class="card-body">
+          <h5 class="card-title mb-3">Saldo en el tiempo</h5>
+          <div class="chart-wrapper">
+            <canvas id="saldoTiempoChart"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
 
-      document.getElementById("btnCompartir").addEventListener("click", () => {
-        if (navigator.share) navigator.share({ text: String(datosCliente.cuenta) });
-      });
+    <div class="col-lg-6">
+      <div class="card shadow-sm h-100">
+        <div class="card-body">
+          <div class="d-flex align-items-center justify-content-between mb-2">
+            <h5 class="card-title mb-0">Pagos por servicio</h5>
+            <small class="text-secondary">Luz, Agua, Manutención, etc.</small>
+          </div>
+          <div class="chart-wrapper">
+            <canvas id="pagosServicioChart"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
 
-      document.getElementById("btnSalir").addEventListener("click", () => {
-        datosCliente.login = false;
-        localStorage.setItem("usuario", JSON.stringify(datosCliente));
-        location.href = "/";
-      });
+    <div class="col-12">
+      <div class="card shadow-sm">
+        <div class="card-body d-flex flex-column flex-md-row align-items-md-center justify-content-between">
+          <div class="mb-3 mb-md-0">
+            <h5 class="card-title mb-1">Reporte PDF</h5>
+            <small class="text-secondary">Incluye últimos movimientos.</small>
+          </div>
+          <div>
+            <button id="btnDescargarPDF" class="btn btn-danger">
+              <i class="fa-solid fa-file-arrow-down me-1"></i> Descargar PDF
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center mt-4">
+    <a href="historial.html" class="btn btn-outline-danger">
+      <i class="fa-duotone fa-solid fa-clock-rotate-left me-1"></i> Volver al historial
+    </a>
+  </div>
+</main>
+
+<footer class="custom-footer mt-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 mb-4 mb-md-0">
+        <h4 class="fw-bold mb-3">The Pokemon Bank</h4>
+        <p class="somos mb-0">TPB es una institución financiera para entrenadores Pokémon.</p>
+        <img src="../assets/img/logo_pdf.png" alt="" class="img-fluid" style="max-height:100px;">
+      </div>
+      <div class="col-md-4 mb-4 mb-md-0">
+        <h4 class="fw-bold mb-3">Enlaces</h4>
+        <ul>
+          <li><a href="#" class="link">Contacto</a></li>
+          <li><a href="#" class="link">Privacidad</a></li>
+          <li><a href="#" class="link">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <h4 class="fw-bold mb-3">Síguenos</h4>
+        <div class="d-flex gap-3">
+          <i class="fa-brands fa-facebook fa-lg"></i>
+          <i class="fa-brands fa-instagram fa-lg"></i>
+          <i class="fa-brands fa-youtube fa-lg"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspdf-autotable@3.8.2/dist/jspdf.plugin.autotable.min.js"></script>
+
+<!-- Your custom PDF logic must come AFTER these -->
+<script src="assets/js/pdf.js"></script>
+
+
+
+<!-- ✅✅ FULL CHART LOGIC USING LOCALSTORAGE ✅✅ -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  /* ------------ LOAD USER -------------- */
+  const usuario = JSON.parse(localStorage.getItem("usuario"));
+  document.getElementById("cuenta").textContent = usuario.cuenta;
+  document.getElementById("saldo").textContent = "$" + usuario.saldo.toFixed(2);
+
+  /* ------------ LOAD TRANSACTIONS ------------- */
+  const trans = JSON.parse(localStorage.getItem("transactions")) || [];
+
+  /* ------------ CHART 1: DISTRIBUCIÓN POR TIPO ------------- */
+
+/* ------------ CHART 1: DISTRIBUCIÓN POR TIPO DE TRANSACCIÓN ------------- */
+
+const tipos = {
+  "Depósitos": 0,
+  "Retiros": 0,
+  "Pagos de Servicios": 0,
+  "Compras y Otros": 0
+};
+
+trans.forEach(t => {
+
+  if (t.Código.startsWith("CR")) {
+    tipos["Depósitos"] += t.Monto;
+  }
+  else if (t.Código.startsWith("RET")) {
+    tipos["Retiros"] += Math.abs(t.Monto);
+  }
+  else if (t.Código.startsWith("PAY")) {
+    tipos["Pagos de Servicios"] += Math.abs(t.Monto);
+  }
+  else {
+    tipos["Compras y Otros"] += Math.abs(t.Monto);
+  }
+
+});
+
+new Chart(document.getElementById("txTipoChart"), {
+  type: "pie",
+  data: {
+    labels: Object.keys(tipos),
+    datasets: [{
+      data: Object.values(tipos),
+      backgroundColor: ["#4caf50", "#f44336", "#ff9800", "#36a2eb"]
+    }]
+  }
+});
+
+
+  /* ------------ CHART 2: MONTOS POR MES ------------- */
+
+  const depositos = Array(12).fill(0);
+  const retiros = Array(12).fill(0);
+
+  trans.forEach(t => {
+    const m = Number(t.Fecha.slice(5, 7)) - 1;
+    if (t.Monto >= 0) depositos[m] += t.Monto;
+    else retiros[m] += Math.abs(t.Monto);
+  });
+
+  new Chart(document.getElementById("montosMensualesChart"), {
+    type: "bar",
+    data: {
+      labels: [
+        "Ene","Feb","Mar","Abr","May","Jun",
+        "Jul","Ago","Sep","Oct","Nov","Dic"
+      ],
+      datasets: [
+        {
+          label: "Depósitos",
+          data: depositos,
+          backgroundColor: "#4caf50"
+        },
+        {
+          label: "Retiros",
+          data: retiros,
+          backgroundColor: "#f44336"
+        }
+      ]
+    }
+  });
+
+  /* ------------ CHART 3: SALDO EN EL TIEMPO ------------- */
+
+  let saldo = 0;
+  const saldoFechas = [];
+  const saldoValores = [];
+
+  trans
+    .sort((a,b)=> new Date(a.Fecha) - new Date(b.Fecha))
+    .forEach(t => {
+      saldo += t.Monto;
+      saldoFechas.push(t.Fecha);
+      saldoValores.push(saldo);
     });
-  </script>
+
+  new Chart(document.getElementById("saldoTiempoChart"), {
+    type: "line",
+    data: {
+      labels: saldoFechas,
+      datasets: [{
+        label: "Saldo Acumulado",
+        data: saldoValores,
+        borderColor: "#36a2eb",
+        fill: true
+      }]
+    }
+  });
+
+  /* ------------ CHART 4: PAGOS POR SERVICIO ------------- */
+
+  const servicios = {};
+
+  trans.forEach(t => {
+  if (t.Código && t.Código.startsWith("PAY")) {
+      servicios[t.Comercio] = (servicios[t.Comercio] || 0) + Math.abs(t.Monto);
+    }
+  });
+
+  new Chart(document.getElementById("pagosServicioChart"), {
+    type: "bar",
+    data: {
+      labels: Object.keys(servicios),
+      datasets: [{
+        label: "Pagos",
+        data: Object.values(servicios),
+        backgroundColor: "#ff9800"
+      }]
+    }
+  });
+
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const btn = document.getElementById("btnDescargarPDF");
+    if (!btn) return;
+
+    btn.addEventListener("click", () => {
+        const usuario = JSON.parse(localStorage.getItem("usuario")) || {};
+        const trans = JSON.parse(localStorage.getItem("transactions")) || [];
+
+        // ✅ Inject all the raw data for PDF.js so it skips fetching JSON
+        window.AppCharts = {
+            usuario,
+            txs: trans
+        };
+
+        // ✅ Call the PDF generator from pdf.js
+        if (typeof generatePDF === "function") {
+            generatePDF();
+        } else {
+            console.error("generatePDF() no existe. pdf.js no se cargó o cambió de nombre.");
+        }
+    });
+});
+</script>
+
+
+
+<script>
+document.getElementById("btnSalir").addEventListener("click", () => {
+  const usuario = JSON.parse(localStorage.getItem("usuario"));
+  usuario.login = false;
+  localStorage.setItem("usuario", JSON.stringify(usuario));
+  location.href = "/";
+});
+</script>
+
 </body>
 </html>

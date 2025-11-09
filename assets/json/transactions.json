@@ -406,8 +406,52 @@
     {
              "AccountNumber": "0987654321",
         "Fecha": "2025-07-28",
-        "Comercio": "LIPS EL SALVADOR S.A DE C.V",
+        "Comercio": "Pago Internet",
         "Monto": -43.99,
-        "Código": "PTA10009"   
+        "Código": "PAY10097"   
     }
+
+    ,
+        {
+            "AccountNumber": "0987654321",
+            "Fecha": "2025-08-15",
+            "Comercio": "Deposito Nómina",
+            "Monto": 500.00,
+            "Código": "CR10050"
+        },
+        {
+            "AccountNumber": "0987654321", 
+            "Fecha": "2025-08-28",
+            "Comercio": "Apple Music",
+            "Monto": -5.99,
+            "Código": "SUB10007"
+        },
+        {
+            "AccountNumber": "0987654321",
+            "Fecha": "2025-09-10",
+            "Comercio": "Deposito Nómina", 
+            "Monto": 500.00,
+            "Código": "CR10051"
+        },
+        {
+            "AccountNumber": "0987654321",
+            "Fecha": "2025-09-28",
+            "Comercio": "Apple Music",
+            "Monto": -5.99,
+            "Código": "SUB10008"
+        },
+        {
+            "AccountNumber": "0987654321",
+            "Fecha": "2025-10-15",
+            "Comercio": "Deposito Nómina",
+            "Monto": 500.00,
+            "Código": "CR10052"
+        },
+        {
+            "AccountNumber": "0987654321",
+            "Fecha": "2025-10-28",
+            "Comercio": "Apple Music", 
+            "Monto": -5.99,
+            "Código": "SUB10009"
+        }
 ]

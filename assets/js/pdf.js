@@ -78,26 +78,29 @@
   }
 
   async function prepareData() {
-    if (window.AppCharts && Array.isArray(window.AppCharts.txs) && window.AppCharts.txs.length) {
-      return window.AppCharts;
-    }
+  const datosCliente = JSON.parse(localStorage.getItem('usuario') || '{}');
+  const accountNumber = datosCliente?.cuenta ? String(datosCliente.cuenta) : null;
 
+  // 1) Get txs either from injected AppCharts or from JSON fetch
+  let txsSource = [];
+  if (window.AppCharts && Array.isArray(window.AppCharts.txs) && window.AppCharts.txs.length) {
+    txsSource = window.AppCharts.txs;
+  } else {
     const JSON_URL = '/assets/json/transactions.json';
-    const datosCliente = JSON.parse(localStorage.getItem('usuario') || '{}');
-
-    let data = [];
     try {
       const res = await fetch(JSON_URL);
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      data = await res.json();
+      txsSource = await res.json();
     } catch (e) {
       console.error('No se pudo cargar el JSON para PDF:', e);
-      data = [];
+      txsSource = [];
     }
+  }
 
-    const accountNumber = datosCliente?.cuenta ? String(datosCliente.cuenta) : null;
-    const txs = (accountNumber ? data.filter(tx => String(tx.AccountNumber) === accountNumber) : data.slice())
-      .sort((a,b)=> String(a.Fecha).localeCompare(String(b.Fecha)));
+  // 2) Filter by account if we know it, then sort
+  const txs = (accountNumber ? txsSource.filter(tx => String(tx.AccountNumber) === accountNumber) : txsSource.slice())
+    .sort((a,b)=> String(a.Fecha).localeCompare(String(b.Fecha)));
+
 
     const monthDeposits = new Map();
     const monthWithdraw = new Map();
@@ -234,10 +237,13 @@
     doc.save('reporte_pokemon_bank.pdf');
   }
 
-  document.addEventListener('DOMContentLoaded', () => {
-    const btn = document.getElementById('btnDescargarPDF');
-    if (btn) btn.addEventListener('click', generatePDF);
-  });
+  // document.addEventListener('DOMContentLoaded', () => {
+  //   const btn = document.getElementById('btnDescargarPDF');
+  //   if (btn) btn.addEventListener('click', generatePDF);
+  // });
+
+  window.generatePDF = generatePDF;
+
 })();
 
 function generarPDFTransaccion(datosCliente, monto, tipoTransaccion, extra = {}) {
