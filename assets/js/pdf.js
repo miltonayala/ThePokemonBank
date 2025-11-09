@@ -239,3 +239,63 @@
     if (btn) btn.addEventListener('click', generatePDF);
   });
 })();
+
+function generarPDFTransaccion(datosCliente, monto, tipoTransaccion, extra = {}) {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF({ unit: "pt", format: "a4" });
+
+    const fecha = new Date().toLocaleString("es-SV", {
+        dateStyle: "long",
+        timeStyle: "short"
+    });
+
+    const codigo = `${tipoTransaccion}-` + Math.floor(100000 + Math.random() * 900000);
+
+    let tipoTexto = {
+        ret: "Retiro",
+        dep: "Depósito",
+        pay: "Pago"
+    }[tipoTransaccion] || "Transacción";
+
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(20);
+    doc.text(`ThePokeBank - Comprobante de ${tipoTexto}`, 40, 60);
+
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(12);
+
+    doc.text(`Fecha: ${fecha}`, 40, 110);
+    doc.text(`Cuenta: ${datosCliente.cuenta}`, 40, 140);
+    doc.text(`Titular: ${datosCliente.nombre}`, 40, 170);
+
+    doc.setDrawColor(200);
+    doc.line(40, 200, 550, 200);
+
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(14);
+    doc.text("Detalle de la Transacción", 40, 230);
+
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(12);
+
+    doc.text(`Código de ${tipoTexto}: ${codigo}`, 40, 260);
+    doc.text(`Monto de ${tipoTexto}: $${monto.toFixed(2)}`, 40, 290);
+
+    if (tipoTransaccion === "pay") {
+        const detalle = `${extra.categoria} - ${extra.empresa}`;
+        doc.text(`Servicio pagado: ${detalle}`, 40, 320);
+        doc.text(`Referencia: ${extra.referencia}`, 40, 350);
+    }
+
+    doc.text(`Saldo final: $${datosCliente.saldo.toFixed(2)}`, 40, tipoTransaccion === "pay" ? 380 : 320);
+
+    doc.setDrawColor(200);
+    doc.line(40, tipoTransaccion === "pay" ? 410 : 350, 550, tipoTransaccion === "pay" ? 410 : 350);
+
+    doc.setFontSize(10);
+    doc.text("Gracias por usar nuestros servicios.", 40, tipoTransaccion === "pay" ? 440 : 380);
+    doc.text("ThePokeBank © 2025", 40, tipoTransaccion === "pay" ? 460 : 400);
+
+    doc.save(`comprobante_${tipoTexto}_${codigo}.pdf`);
+}
+

@@ -9,8 +9,9 @@ document.addEventListener("DOMContentLoaded", function () {
     login: false,
   };
 
-  localStorage.setItem("usuario", JSON.stringify(usuario));
-
+if (!localStorage.getItem("usuario")) {
+    localStorage.setItem("usuario", JSON.stringify(usuario));
+}
   const datos = localStorage.getItem("usuario");
   const usuarioGuardado = JSON.parse(datos);
 
