@@ -9,7 +9,7 @@
   <script src="https://kit.fontawesome.com/98424cc025.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <!--Footer Styles-->
-        <link rel="stylesheet" href="../demoChartjs-pagoServicios-footer/estilos.css" />
+  <link rel="stylesheet" href="../demoChartjs-pagoServicios-footer/estilos.css" />
 
   <style>
     body { background-image: url("assets/img/bg.png"); }
@@ -23,7 +23,8 @@
             <a href="../panel.html" class="fw-bold fs-5 m-0 text-white text-decoration-none d-flex align-items-center">
                 <img src="assets/img/pokeball.png" alt="Pokeball" style="height:32px; margin-left:10px; margin-right: 8px;">
                ThePokeBank
-            </a>            <button id="btnSalir" class="btn btn-sm btn-outline-light">
+            </a>
+            <button id="btnSalir" class="btn btn-sm btn-outline-light">
                 <i class="fa-duotone fa-solid fa-right-from-bracket me-1"></i> Salir
             </button>
         </header>
@@ -44,15 +45,17 @@
             <h2 class="fw-medium text-dark fs-6 p-3 mb-2">
                 <i class="fa-duotone fa-solid fa-money-bill-wave me-2"></i>Depósito de efectivo
             </h2>
-            <form id="retiroForm" class="mb-4">
+            <!-- Se elimina 'required' para usar validación personalizada con SweetAlert -->
+            <form id="retiroForm" class="mb-4" novalidate>
                 <div class="mb-3">
                     <label for="montoDeposito" class="form-label">Monto a depositar</label>
-                    <input type="number" step="0.01" class="form-control" id="montoDeposito" required>
+                    <input type="number" step="0.01" class="form-control" id="montoDeposito">
                 </div>
                 <button type="submit" class="btn btn-danger w-100">Depositar</button>
             </form>
             <div id="mensajeRetiro"></div>
         </main>
+
 <footer class="custom-footer mt-5">
   <div class="container">
     <div class="row">
@@ -112,7 +115,6 @@
             const datosCliente = JSON.parse(localStorage.getItem("usuario"));
             const cuentaEl = document.getElementById("cuenta");
             const saldoEl = document.getElementById("saldo");
-            const mensajeRetiro = document.getElementById("mensajeRetiro");
 
             if (!datosCliente || !datosCliente.login) {
                 location.href = "index.html";
@@ -131,14 +133,41 @@
             document.getElementById("retiroForm").addEventListener("submit", function(e) {
                 e.preventDefault();
                 const monto = parseFloat(document.getElementById("montoDeposito").value);
-                if (isNaN(monto) || monto <= 0) {
-                    mensajeRetiro.innerHTML = '<div class="alert alert-warning">Ingrese un monto válido.</div>';
+
+                //Validación 1: Campo vacío o no numérico
+                if (isNaN(monto) || document.getElementById("montoDeposito").value.trim() === "") {
+                    Swal.fire({
+                        icon: "warning",
+                        title: "Monto inválido",
+                        text: "Por favor, ingrese un monto válido."
+                    });
                     return;
                 }
+
+                //Validación 2: Monto menor o igual a 0
+                if (monto <= 0) {
+                    Swal.fire({
+                        icon: "error",
+                        title: "Monto incorrecto",
+                        text: "El monto debe ser mayor que 0."
+                    });
+                    return;
+                }
+
+                //Si todo está bien, actualiza el saldo
                 datosCliente.saldo += monto;
                 localStorage.setItem("usuario", JSON.stringify(datosCliente));
                 saldoEl.textContent = "$" + datosCliente.saldo.toFixed(2);
-                mensajeRetiro.innerHTML = `<div class="alert alert-success">Deposito exitoso: $${monto.toFixed(2)}</div>`;
+
+                //Alerta de éxito
+                Swal.fire({
+                    icon: "success",
+                    title: "Depósito realizado",
+                    text: `Has depositado $${monto.toFixed(2)} con éxito.`,
+                    confirmButtonColor: "#dc3545"
+                });
+
+                //Limpia el formulario
                 document.getElementById("retiroForm").reset();
             });
         });
