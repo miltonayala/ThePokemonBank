@@ -224,7 +224,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  let userTransactions = JSON.parse(localStorage.getItem("transactions")) || [];
+  let userTransactions = JSON.parse(localStorage.getItem("transactions")) || []; //Aqui cargamos las transacciones desde el almacenamiento local
 
   if (userTransactions.length === 0) {
     fetch("assets/json/transactions.json")

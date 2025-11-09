@@ -205,7 +205,8 @@ function agregarTransaccion(accountNumber, comercio, monto) {
                 datosCliente.saldo += monto;
                 localStorage.setItem("usuario", JSON.stringify(datosCliente));
                 saldoEl.textContent = "$" + datosCliente.saldo.toFixed(2);
-                        // Agregar al localStorage
+        
+                // Agregar al localStorage. 
         agregarTransaccion(
             datosCliente.cuenta,
             "Abono de efectivo",
