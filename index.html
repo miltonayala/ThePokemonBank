@@ -55,19 +55,26 @@
           <h1 class="texto-header text-white fw-bold display-5 m-0">ThePokeBank</h1>
         </header>
                   <!-- Caja de acceso -->
-          <div class="bg-glass border rounded-4 shadow-lg mx-auto mt-5 p-4" style="max-width: 720px;">
-            <h2 class="fs-5 fw-semibold text-white text-center text-uppercase mb-2">Ingresar a mi banca</h2>
+          <form class="bg-glass border rounded-4 shadow-lg mx-auto mt-5 p-4" style="max-width: 720px;" id="btnLogin">
+            <h3 class=" fw-semibold text-white text-center text-uppercase mb-2">Ingresar a mi banca</h3>
+
+            <div class="mx-auto" style="max-width: 540px;">
+              <div class="mb-3">
+                <input type="text" id="usuario" class="form-control text-center fs-5 bg-transparent border-0 text-dark" placeholder="Usuario" aria-label="Usuario" />
+              </div>
+            </div>
+
             <h3 class="fw-semibold text-white text-center text-uppercase mb-4">DIGITA TU PIN:</h3>
 
             <div class="mx-auto" style="max-width: 540px;">
               <div class="input-group">
                 <input type="password" id="pin" class="form-control text-center fs-1 bg-transparent border-0 text-dark" placeholder="****" aria-label="PIN" />
-                <button class="btn btn-transparent px-3" id="btnLogin" type="button" aria-label="Ingresar">
+                <button class="btn btn-transparent px-3" type="submit" aria-label="Ingresar">
                   <i class="fa-solid fa-arrow-right text-white fs-3"></i>
                 </button>
               </div>
             </div>
-          </div>
+          </form>
           <!-- Fin caja de acceso -->
 <br><br><br>
         <div class="container px-4">

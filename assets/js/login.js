@@ -3,9 +3,9 @@ document.addEventListener("DOMContentLoaded", function () {
   
   let usuario = {
     cuenta: 1236548215,
-    nombre: "Julio Jaramillo",
+    nombre: "Ash Ketchum",
     pin: 1234,
-    saldo: 1345.75,
+    saldo: 500.00,
     login: false,
   };
 
@@ -15,21 +15,22 @@ document.addEventListener("DOMContentLoaded", function () {
   const usuarioGuardado = JSON.parse(datos);
 
   let inputPin = document.getElementById("pin");
+  let inputUsuario = document.getElementById("usuario");
   let btnLogin = document.getElementById("btnLogin");
 
-  btnLogin.addEventListener("click", (e) => {
+  btnLogin.addEventListener("submit", (e) => {
     e.preventDefault();
-    if (inputPin.value.trim().length == 0) {
+    if (inputPin.value.trim().length == 0 || inputUsuario.value.trim().length == 0) {
       Swal.fire({
         title: "Rellena los campos",
-        text: "Debes ingresar tu pin para acceder",
+        text: "Debes ingresar tu usuario y pin para acceder",
         icon: "warning",
       });
       return;
-    } else if (parseInt(inputPin.value.trim()) !== usuarioGuardado.pin) {
+    } else if (inputUsuario.value.trim() !== usuarioGuardado.nombre || parseInt(inputPin.value.trim()) !== usuarioGuardado.pin) {
       Swal.fire({
-        title: "Pin no valido",
-        text: "Verifica haber ingresado el pin correcto",
+        title: "Usuario o pin no valido",
+        text: "Verifica haber ingresado el usuario o pin correcto",
         icon: "warning",
       });
       return;
